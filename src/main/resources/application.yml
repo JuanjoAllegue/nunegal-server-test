@@ -1,0 +1,9 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: nunegal-server-test
+
+external-api:
+  url: http://localhost:3001
