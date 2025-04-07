@@ -2,6 +2,7 @@ package com.example.nunegal_server_test.web;
 
 import com.example.nunegal_server_test.model.service.ProductService;
 import com.example.nunegal_server_test.model.service.dto.ProductDTO;
+import com.example.nunegal_server_test.model.service.exceptions.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,8 @@ public class ProductResource {
     }
 
     @GetMapping("/{productId}/similar")
-    public ResponseEntity<List<ProductDTO>> getSimilarProducts(@PathVariable String productId) {
+    public ResponseEntity<List<ProductDTO>> getSimilarProducts(@PathVariable String productId) 
+        throws NotFoundException {
         List<ProductDTO> response = productService.getSimilarProducts(productId);
         return ResponseEntity.ok(response);
     }
